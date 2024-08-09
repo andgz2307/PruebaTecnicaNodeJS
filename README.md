@@ -1,73 +1,194 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Prueba Técnica Kamaytech
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Descripción
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Esta es una prueba técnica para Kamaytech en la que se ha desarrollado una API RESTful utilizando Node.js y MongoDB. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una colección de documentos de usuarios. La autenticación está implementada utilizando JWT y bcrypt para el manejo seguro de contraseñas.
 
-## Description
+## Tecnologías Usadas
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Node.js**: Entorno de ejecución para JavaScript en el lado del servidor.
+- **NestJS**: Framework de Node.js para construir aplicaciones del lado del servidor.
+- **MongoDB**: Base de datos NoSQL utilizada para almacenar documentos.
+- **Mongoose**: Biblioteca de modelado de objetos MongoDB para Node.js.
+- **Swagger**: Herramienta para la documentación interactiva de la API.
+- **bcrypt**: Biblioteca para la encriptación de contraseñas.
+- **JWT (JSON Web Token)**: Mecanismo para la autenticación de usuarios.
 
-## Installation
+## Instalación
 
-```bash
-$ npm install
-```
+1. **Clonar el repositorio**
 
-## Running the app
+   ```bash
+   git clone https://github.com/andgz2307/PruebaTecnicaNodeJS.git
+   
+2. **Acceder al directorio del proyecto**
 
-```bash
-# development
-$ npm run start
+cd PruebaTecnicaNodeJS
 
-# watch mode
-$ npm run start:dev
+3. **Instalar las dependencias**
 
-# production mode
-$ npm run start:prod
-```
+npm install
 
-## Test
+4 **Configurar el archivo .env**
 
-```bash
-# unit tests
-$ npm run test
+Crea un archivo .env en la raíz del proyecto y agrega la URL de conexión de MongoDB Atlas:
 
-# e2e tests
-$ npm run test:e2e
+MONGODB\_URI=mongodb+srv://<usuario>:<contraseña>@<cluster>.mongodb.net/<dbname>?retryWrites=true&w=majority
 
-# test coverage
-$ npm run test:cov
-```
+JWT\_SECRET=<tu\_clave\_secreta>
 
-## Support
+5. **Iniciar la aplicación**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+npm run start:dev
 
-## Stay in touch
+La aplicación estará disponible en http://localhost:3000.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Documentación de la API
 
-## License
+La documentación de la API está disponible a través de Swagger en:
 
-Nest is [MIT licensed](LICENSE).
+
+http://localhost:3000/api
+
+## Endpoints
+
+##Crear un Usuario
+
+Método: POST
+
+Ruta: /users
+
+Descripción: Crea un nuevo usuario.
+
+Cuerpo de la Solicitud (JSON):
+
+json
+
+
+
+{
+
+"name": "Juan Pérez",
+
+"email": "juan.perez@example.com",
+
+"age": 30,
+
+"password": "contraseña123"
+
+}
+
+Respuesta: Código 201 - Usuario creado exitosamente.
+
+##Obtener Todos los Usuarios
+
+Método: GET
+
+Ruta: /users
+
+Descripción: Obtiene todos los usuarios.
+
+Respuesta: Código 200 - Lista de usuarios.
+
+##Obtener un Usuario por ID
+
+Método: GET
+
+Ruta: /users/:id
+
+Descripción: Obtiene un usuario específico por su ID.
+
+Parámetros de la URL: id - ID del usuario.
+
+Respuesta: Código 200 - Usuario encontrado.
+
+Actualizar un Usuario
+
+##Método: PUT
+
+Ruta: /users/:id
+
+Descripción: Actualiza un usuario específico por su ID.
+
+Parámetros de la URL: id - ID del usuario.
+
+Cuerpo de la Solicitud (JSON):
+
+json
+
+
+
+{
+
+"name": "Juan Pérez",
+
+"email": "juan.perez@example.com",
+
+"age": 31,
+
+"password": "nueva\_contraseña123"
+
+}
+
+Respuesta: Código 200 - Usuario actualizado exitosamente.
+
+##Eliminar un Usuario
+
+Método: DELETE
+
+Ruta: /users/:id
+
+Descripción: Elimina un usuario específico por su ID.
+
+Parámetros de la URL: id - ID del usuario.
+
+Respuesta: Código 200 - Usuario eliminado exitosamente.
+
+Autenticación
+
+Método: POST
+
+Ruta: /auth/login
+
+Descripción: Inicia sesión y obtiene un token JWT.
+
+Cuerpo de la Solicitud (JSON):
+
+json
+
+Copiar código
+
+{
+
+"email": "juan.perez@example.com",
+
+"password": "contraseña123"
+
+}
+
+Respuesta: Código 200 - Token JWT.
+
+##Cómo Probar los Endpoints
+
+Accede a la interfaz de Swagger en http://localhost:3000/api.
+
+Utiliza los formularios proporcionados para probar cada uno de los endpoints.
+
+Ingresa los datos necesarios y envía las solicitudes para verificar el comportamiento de la API.
+
+Autor
+
+Nombre: Andrés Guaicha
+
+
+Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+javascript
+
+
+
+Este `README.md` proporciona una guía completa para la instalación, configuración, y uso de la API, así como detalles sobre la documentación y los endpoints.
+
+
