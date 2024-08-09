@@ -32,7 +32,9 @@ export class UsersService {
     return user;
   }
   async findOneByEmail(email: string): Promise<User | null> {
-    return this.userModel.findOne({ email }).exec();
+    const user = await this.userModel.findOne({ email }).exec();
+    console.log('User found:', user);  // Añade este registro
+    return user;
   }
 
   async update(id: string, updateUserDto: CreateUserDto): Promise<User> {

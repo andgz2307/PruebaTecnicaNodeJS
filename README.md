@@ -52,7 +52,7 @@ http://localhost:3000/api
 
 ## Endpoints
 
-##Crear un Usuario
+## Crear un Usuario
 
 Método: POST
 
@@ -80,7 +80,7 @@ json
 
 Respuesta: Código 201 - Usuario creado exitosamente.
 
-##Obtener Todos los Usuarios
+## Obtener Todos los Usuarios
 
 Método: GET
 
@@ -90,7 +90,7 @@ Descripción: Obtiene todos los usuarios.
 
 Respuesta: Código 200 - Lista de usuarios.
 
-##Obtener un Usuario por ID
+## Obtener un Usuario por ID
 
 Método: GET
 
@@ -104,7 +104,7 @@ Respuesta: Código 200 - Usuario encontrado.
 
 Actualizar un Usuario
 
-##Método: PUT
+## Método: PUT
 
 Ruta: /users/:id
 
@@ -132,7 +132,7 @@ json
 
 Respuesta: Código 200 - Usuario actualizado exitosamente.
 
-##Eliminar un Usuario
+## Eliminar un Usuario
 
 Método: DELETE
 
@@ -156,7 +156,6 @@ Cuerpo de la Solicitud (JSON):
 
 json
 
-Copiar código
 
 {
 
@@ -168,7 +167,7 @@ Copiar código
 
 Respuesta: Código 200 - Token JWT.
 
-##Cómo Probar los Endpoints
+## Cómo Probar los Endpoints
 
 Accede a la interfaz de Swagger en http://localhost:3000/api.
 
