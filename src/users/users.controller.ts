@@ -6,11 +6,14 @@ import {
   Param,
   Put,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { CreateUserDto } from './users.dto';
 import { User } from './schemas/user.schema';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+
 //KGUAICHA
 //09-08-2024
 //Controller de
@@ -22,6 +25,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Crear un usuario' })
   @ApiResponse({ status: 201, description: 'El usuario ha sido creado.' })
   @Post()
+  @UseGuards(JwtAuthGuard)
   create(@Body() createUserDto: CreateUserDto): Promise<User> {
     return this.usersService.create(createUserDto);
   }
@@ -29,6 +33,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Obtener todos los usuarios' })
   @ApiResponse({ status: 200, description: 'Lista de usuarios.' })
   @Get()
+  @UseGuards(JwtAuthGuard)
   findAll(): Promise<User[]> {
     return this.usersService.findAll();
   }
@@ -36,6 +41,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Obtener un usuario por ID' })
   @ApiResponse({ status: 200, description: 'Usuario encontrado.' })
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string): Promise<User> {
     return this.usersService.findOne(id);
   }
@@ -43,6 +49,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Actualizar un usuario por ID' })
   @ApiResponse({ status: 200, description: 'Usuario actualizado.' })
   @Put(':id')
+  @UseGuards(JwtAuthGuard)
   update(
     @Param('id') id: string,
     @Body() updateUserDto: CreateUserDto,
@@ -53,6 +60,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Eliminar un usuario por ID' })
   @ApiResponse({ status: 200, description: 'Usuario eliminado.' })
   @Delete(':id')
+  @UseGuards(JwtAuthGuard)
   delete(@Param('id') id: string): Promise<void> {
     return this.usersService.delete(id);
   }
